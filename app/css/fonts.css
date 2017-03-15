@@ -24,3 +24,17 @@
   font-style: normal;
   font-weight: normal;
 }
+
+/* font-family: "SegoeUIItalic" */
+@font-face {
+  font-family: "SegoeUIItalic";
+  src: url("../fonts/SegoeUIItalic/SegoeUIItalic.eot");
+  src: url("../fonts/SegoeUIItalic/SegoeUIItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/SegoeUIItalic/SegoeUIItalic.woff") format("woff"), url("../fonts/SegoeUIItalic/SegoeUIItalic.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* font-family: "SegoeUILight" */
+@font-face {
+  font-family: "SegoeUISemilight";
+}
