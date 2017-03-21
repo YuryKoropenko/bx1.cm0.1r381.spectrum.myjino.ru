@@ -65,7 +65,7 @@ $(function(){
 		autoplay: true,
 		dots: false,
 		centerMode: true,
-		centerPadding: '240px',
+		centerPadding: '140px',
 		autoplay: true,
 		speed: 300,
 		responsive: [
