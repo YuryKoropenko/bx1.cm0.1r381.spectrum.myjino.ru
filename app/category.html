@@ -11,6 +11,7 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
 	<![endif]-->
 	<script src="libs/jquery/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="libs/slick/slick.min.js"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js"></script>
 	<script src="js/common.js"></script>
@@ -89,6 +90,14 @@
 				</a>
 			</div>
 			<div class="city">
+				<script>
+					$(document).ready(function() {
+						$('.dropdown img').on('click', function(e) {
+							$('.dropdown-toggle').trigger('click', true);
+							return false;
+						});
+					});
+				</script>
 				<div class="dropdown">
 				  <img src="img/city.jpg"> <a href="#" data-toggle="dropdown" class="dropdown-toggle">
 					Санкт-Петербург
@@ -562,8 +571,8 @@
 		<div class="container">
 			<div class="catalog-top-content">
 				<img src="img/catalog.png" class="zag pc">
-				<img src="img/catalog2.jpg" class="zag tablet">
-				<img src="img/catalog3.jpg" class="zag tablet2">
+				<img src="img/catalog2.png" class="zag tablet">
+				<img src="img/catalog3.png" class="zag tablet2">
 				<div class="list row">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item">
 						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
