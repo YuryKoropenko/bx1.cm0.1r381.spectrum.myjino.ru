@@ -172,6 +172,37 @@ main {
   background-repeat: no-repeat;
   background-position: center center;
 }
+.popup-search {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  z-index: 999;
+  display: none;
+}
+.popup-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 998;
+  display: none;
+}
+.popup-search input {
+  height: 40px;
+  width: 400px;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid #999;
+  margin: 0 auto;
+  padding: 0 12px;
+}
 .header .phone {
   margin-top: 40px;
   padding-left: 25px;
@@ -253,9 +284,14 @@ main {
   color: #e8e8e8;
 }
 .index-top-text {
-  height: 500px!important;
-  background: url('../img/index-top-text.jpg') center;
-  background-size: cover;
+  height: 490px !important;
+  background-size: 100% 100%;
+}
+.index-slider .slick-list {
+  width: 1200px !important;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0 15px !important;
 }
 .index-top-text .zag {
   color: #fff;
@@ -268,14 +304,26 @@ main {
   color: #186ca4;
   line-height: 120%;
 }
-.index-slider {
+.index-slider, .mob-index-slider {
   position: relative;
 }
-.index-slider .container {
-  width: 100%;
+.index-slider-wp {
+  position: relative;
 }
-.index-slider .slick-prev,
-.index-slider .slick-next {
+.index-slider-arrow {
+  width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+.index-slider .slick-arrow {
+  display: none !important;
+}
+.index-slider-arrow button {
   font-size: 0;
   position: absolute;
   border: 0;
@@ -287,16 +335,32 @@ main {
   top: 50%;
   margin-top: -10px;
 }
-.index-slider .slick-prev {
-  left: 176px;
+.index-slider-left {
+  left: 30px;
   background: url('../img/btn-prev-02.svg');
 }
-.index-slider .slick-prev:hover, .index-slider .slick-next:hover {
+.index-slider-right {
+  right: 30px;
+  background: url('../img/btn-next-02.svg');
+}
+.index-slider-left:hover, .index-slider-right:hover {
   background-position: 0 50px;
 }
-.index-slider .slick-next {
-  right: 176px;
-  background: url('../img/btn-next-02.svg');
+.index-slider .container {
+  width: 100%;
+}
+.mob-index-slider .slick-prev,
+.mob-index-slider .slick-next {
+  font-size: 0;
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  top: 50%;
+  margin-top: -10px;
 }
 .icons-slider {
   background: #fff;
@@ -425,16 +489,16 @@ main {
   -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   padding-bottom: 15px;
   border-radius: 5px;
   cursor: pointer;
   height: 364px;
 }
 .catalog-item:hover {
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
 }
 .catalog-item .name {
   padding: 15px 15px 2px 15px;
@@ -446,6 +510,9 @@ main {
 }
 .catalog-item .name a {
   color: #5e9bb0;
+}
+.catalog-item .name a:hover {
+  text-decoration: underline;
 }
 .catalog-item .rek {
   display: inline-block;
@@ -495,10 +562,10 @@ main {
   fill: #fff;
 }
 .catalog-item .price {
-  float: left;
   padding-left: 15px;
   color: #5e9bb0;
   font-size: 32px;
+  display: inline-block;
 }
 .catalog-item .delivery {
   float: right;
@@ -527,7 +594,7 @@ main {
 }
 .feed-zag {
   font-size: 33px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .feed-zag a {
   color: #666;
@@ -1050,10 +1117,22 @@ h1 {
   color: #2f789b;
 }
 .product-top-info .nal {
-  float: right;
-  color: #2f789b;
+  color: #1a6ea6;
   font-size: 18px;
-  padding-top: 15px;
+  line-height: 100%;
+  position: relative;
+  padding-left: 26px;
+  display: inline-block;
+  float: right;
+  margin-top: 22px;
+}
+.product-top-info .nal svg {
+  fill: #22B573;
+  width: 20px;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 1px
 }
 .product-top-info .select {
   color: #2f789b;
@@ -1061,6 +1140,17 @@ h1 {
   padding-top: 10px;
   margin-bottom: 15px;
   line-height: 44px;
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+  background-color: #ebebeb;
+  color: #666;
+  border-color: transparent;
+  font-size: 18px;
+  line-height: 21px;
+}
+.ui-menu .ui-menu-item-wrapper {
+  font-size: 18px;
+  line-height: 21px;
 }
 .product-top-info .select .item {
   
@@ -1315,7 +1405,7 @@ h2 {
   letter-spacing: -1px;
   color: #fff;
   position: absolute;
-  bottom: 8px;
+  bottom: 16px;
   left: 64px;
 }
 .catalog-menu-top {
@@ -1370,13 +1460,14 @@ h2 {
   position: absolute;
   top: 50%;
   left: 8px;
-  right: 6px;
+  right: 8px;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  font-size: 18px;
+  font-size: 20px;
   font-family: "SegoeUIBold";
   color: #fff;
   letter-spacing: -1px;
+  text-align: center;
 }
 .catalog-menu .catalog-menu-bottom ul li a:hover {
   background: #b5d6ef;
@@ -1390,6 +1481,23 @@ h2 {
 .catalog-menu .catalog-menu-bottom ul li a:hover {
   background: #cccccc;
   text-decoration: none;
+}
+.catalog-menu .catalog-menu-bottom .second {
+  background-color: #d6e3ed;
+  position: relative;
+}
+.catalog-menu .catalog-menu-bottom .first {
+  position: relative;
+}
+.catalog-menu .catalog-menu-bottom .second-wp {
+  background-color: #d6e3ed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: none;
 }
 .catalog-menu .catalog-menu-bottom .second .with-sub ul li a {
   background-color: transparent;
@@ -1445,11 +1553,8 @@ h2 {
   border: 2px solid #ccc;
   padding: 0 12px;
 }
-.mobile-slider {
-  display: none!important;
-}
-.mobile-slider .slick-prev,
-.mobile-slider .slick-next {
+.index-catalog .slick-prev,
+.index-catalog .slick-next {
   font-size: 0;
   position: absolute;
   border: 0;
@@ -1461,12 +1566,12 @@ h2 {
   top: 50%;
   margin-top: -10px;
 }
-.mobile-slider .slick-prev {
-  left: -15px;
+.index-catalog .slick-prev {
+  left: 0;
   background: url('../img/prev.png');
 }
-.mobile-slider .slick-next {
-  right: -15px;
+.index-catalog .slick-next {
+  right: 0;
   background: url('../img/next.png');
 }
 .mobile-info {
@@ -1629,7 +1734,7 @@ h2 {
     background-position: center 16px;
   }
   .catalog-menu .catalog-menu-top a span {
-    font-size: 14px;
+    font-size: 18px;
   }
   .catalog-menu .catalog-menu-bottom ul li a {
     font-size: 12px;
@@ -1681,6 +1786,12 @@ h2 {
   }
 }
 @media (max-width: 991px) {
+  .header .phone a {
+    display: none;
+  }
+  .index-slider-wp {
+    display: none;
+  }
   .dropdown-toggle {
     display: none;
   }
@@ -1705,7 +1816,7 @@ h2 {
   }
   .menu-main .zag span {
     font-size: 16px;
-    bottom: 20px;
+    bottom: 26px;
     left: 39px;
   }
   .catalog-top-content a {
@@ -1807,6 +1918,17 @@ h2 {
   .footer .bottom-menu ul {
     margin-bottom: 10px;
   }*/
+}
+@media (max-width: 1200px) {
+  .index-slider .slick-list {
+    width: 991px !important;
+  }
+  .index-top-text {
+    height: 395px !important;
+  }
+  .index-slider-arrow {
+    width: 991px;
+  }
 }
 @media (max-width: 767px) {
   .social {
@@ -1937,7 +2059,7 @@ h2 {
   .footer .logo a {
     display: block;
   }
-  .index-slider p {
+  .mob-index-slider p {
     display: none;
   }
   .icons-slider .item {
@@ -1953,13 +2075,12 @@ h2 {
     padding: 16px 0;
   }
   .catalog-zag .zag {
-    display: inline-block;
+    display: block;
     margin-bottom: 15px;
     line-height: 27px;
-    vertical-align: super;
   }
   .catalog-item {
-    height: 364px;
+    height: 100%;
   }
   .posts-feed .articles-list .item img {
     width: 80px;
@@ -1977,6 +2098,8 @@ h2 {
     width: auto;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 20px;
   }
   .mob-menu-main .catalog-top-content .list .item svg {
     width: 56px;
@@ -2199,9 +2322,6 @@ h2 {
     height: 50px;
     padding: 10px 0;
   }
-  .index-catalog {
-    display: none;
-  }
   .mobile-slider {
     display: block!important;
     margin: 0 auto;
@@ -2245,6 +2365,12 @@ h2 {
   }
   .news-list .item .image img {
     width: 100%;
+  }
+}
+
+@media (min-width: 991px) {
+  .mob-index-slider {
+    display: none;
   }
 }
 
