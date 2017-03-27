@@ -5,21 +5,23 @@ $(document).ready(function() {
 		slidesToShow: 4,
 		responsive: [
 			{
-				breakpoint: 991,
+				breakpoint: 992,
 				settings: {
 					slidesToShow: 3
 				}
 			},
 			{
-				breakpoint: 767,
+				breakpoint: 768,
 				settings: {
-					slidesToShow: 2
+					slidesToShow: 2,
+					arrows: false
 				}
 			},
 			{
-				breakpoint: 480,
+				breakpoint: 481,
 				settings: {
-					slidesToShow: 1
+					slidesToShow: 1,
+					arrows: false
 				}
 			}
 		]
@@ -31,13 +33,13 @@ $(document).ready(function() {
 		speed: 300,
 		responsive: [
 		{
-			breakpoint: 991,
+			breakpoint: 992,
 			settings: {
 				centerPadding: '0px'
 			}
 		},
 		{
-			breakpoint: 767,
+			breakpoint: 768,
 			settings: {
 				centerPadding: '0px',
 				arrows: false
