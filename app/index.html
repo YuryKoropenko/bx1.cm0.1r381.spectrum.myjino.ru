@@ -256,10 +256,10 @@
 		<script>
 			$(document).ready(function() {
 				$('.index-slider-left').on('click', function(e) {
-					$('.slick-prev').trigger('click', false);
+					$('.index-slider .slick-prev').trigger('click', false);
 				});
 				$('.index-slider-right').on('click', function(e) {
-					$('.slick-next').trigger('click', false);
+					$('.index-slider .slick-next').trigger('click', false);
 				});
 			});
 		</script>
@@ -448,7 +448,7 @@
 	<div class="wp-slide" style="z-index: 100;">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 hidden-md hidden-sm hidden-lg">
 					<nav class="mobile-menu-2">
 						<ul>
 							<li>

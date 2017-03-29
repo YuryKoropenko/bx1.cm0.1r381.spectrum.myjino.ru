@@ -13,15 +13,13 @@ $(document).ready(function() {
 			{
 				breakpoint: 768,
 				settings: {
-					slidesToShow: 2,
-					arrows: false
+					slidesToShow: 2
 				}
 			},
 			{
 				breakpoint: 481,
 				settings: {
-					slidesToShow: 1,
-					arrows: false
+					slidesToShow: 1
 				}
 			}
 		]
@@ -41,8 +39,7 @@ $(document).ready(function() {
 		{
 			breakpoint: 768,
 			settings: {
-				centerPadding: '0px',
-				arrows: false
+				centerPadding: '0px'
 			}
 		}
 		]
@@ -62,8 +59,7 @@ $(document).ready(function() {
 		{
 			breakpoint: 767,
 			settings: {
-				centerPadding: '0px',
-				arrows: false
+				centerPadding: '0px'
 			}
 		}
 		]
