@@ -63,7 +63,7 @@ $(document).ready(function() {
 		$(this).toggleClass('opened');
 		$(this).next('.mobile-info').slideToggle();
 	});
-	$('.tabs .content table tr td .help').click(function() {
+	$('td .help').click(function() {
 		$('.help-text').removeClass('opened');
 		$(this).parent().children('.help-text').toggleClass('opened');
 		$(document).click(function(event) {
