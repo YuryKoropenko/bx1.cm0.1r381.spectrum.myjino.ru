@@ -59,6 +59,10 @@ $(document).ready(function() {
 		$(this).toggleClass('opened');
 		$(this).next('.mobile-info .info').slideToggle();
 	});
+	$('.mobile-info-title').click(function() {
+		$(this).toggleClass('opened');
+		$(this).next('.mobile-info').slideToggle();
+	});
 	$('.tabs .content table tr td .help').click(function() {
 		$('.help-text').removeClass('opened');
 		$(this).parent().children('.help-text').toggleClass('opened');

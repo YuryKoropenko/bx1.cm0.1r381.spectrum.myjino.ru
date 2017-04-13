@@ -87,4 +87,28 @@ $(document).ready(function() {
 		}
 	  ]
 	});
+	$('.more-items-s').slick({
+		arrows: false,
+		slidesToShow: 6,
+		responsive: [
+			{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 5
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}
+		]
+	});
 });
