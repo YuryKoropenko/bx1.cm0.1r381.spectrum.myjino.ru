@@ -88,8 +88,8 @@ $(document).ready(function() {
 	  ]
 	});
 	$('.more-items-s').slick({
-		arrows: false,
 		slidesToShow: 6,
+		autoplay: true,
 		responsive: [
 			{
 				breakpoint: 1200,
