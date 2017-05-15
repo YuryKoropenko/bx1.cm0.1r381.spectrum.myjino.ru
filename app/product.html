@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="libs/slick/slick.css">
 	<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css">
+	<!--Magnific-Popup-->
+	<link rel="stylesheet" href="libs/Magnific-Popup/dist/magnific-popup.css">
+	<!--Magnific-PopupEnd-->
 	<link rel="stylesheet" href="css/style.css">
 	<!--[if lt IE 9]> 
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
@@ -17,9 +20,17 @@
 	<script type="text/javascript" src="js/sliders.js"></script>
 	<script type="text/javascript" src="libs/bootstrap/bootstrap.min.js"></script>
 	<script type="text/javascript" src="libs/jquery-ui/jquery-ui.min.js"></script>
+	<!--Magnific-Popup-->
+	<script type="text/javascript" src="libs/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+	<!--Magnific-PopupEnd-->
 	<script type="text/javascript" src="js/common.js"></script>
 </head>
 <body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.images__item').magnificPopup({type:'image'});
+		});
+	</script>
 	<div class="mobile-bg"></div>
 	<nav class="mobile-menu">
 		<ul>
@@ -331,10 +342,15 @@
 					<div class="row">
 						<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 							<div class="images">
-								<div><img src="img/good2.jpg" alt="1"></div>
-								<div><img src="img/good2.jpg" alt="1"></div>
-								<div><img src="img/good2.jpg" alt="1"></div>
-								<div><img src="img/good2.jpg" alt="1"></div>
+								<a class="images__item" rel="group1" href="img/good1.jpg">
+									<img src="img/good2.jpg" alt="1">
+								</a>
+								<a class="images__item" rel="group1" href="img/good1.jpg">
+									<img src="img/good2.jpg" alt="1">
+								</a>
+								<a class="images__item" rel="group1" href="img/good1.jpg">
+									<img src="img/good2.jpg" alt="1">
+								</a>
 							</div>
 						</div>
 						<div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 info">
