@@ -31,6 +31,13 @@ $(document).ready(function() {
 		speed: 300,
 		responsive: [
 		{
+			breakpoint: 1200,
+			settings: {
+				centerPadding: '0px',
+				centerMode: false
+			}
+		},
+		{
 			breakpoint: 992,
 			settings: {
 				centerPadding: '0px'
